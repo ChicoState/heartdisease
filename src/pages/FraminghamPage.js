@@ -176,6 +176,12 @@ const FraminghamPage = () => {
       {riskScore !== null && (
         <div className="mt-4 p-4 bg-gray-200 rounded">
           <h3 className="text-lg font-semibold">Risk Score: {riskScore}</h3>
+          <h3 class="card-title">Understanding Your Results</h3>
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-circle-fill text-success"></i> 0-30: Low Risk</li>
+                    <li><i class="bi bi-circle-fill text-warning"></i> 31-60: Moderate Risk</li>
+                    <li><i class="bi bi-circle-fill text-danger"></i> 61-100: High Risk</li>
+                </ul>
         </div>
       )}
     </div>
