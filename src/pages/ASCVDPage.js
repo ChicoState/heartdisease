@@ -37,7 +37,29 @@ const ASCVDPage = () => {
   };
 
   return (
-    <div className="p-10 text-xl">
+    <>
+    <nav class="navbar">
+      <div class="container">
+        <a class="navbar-brand" href="/">❤️ Heart Health</a>
+        <button class="navbar-toggle" type="button" onclick="toggleNav()">
+          <span class="toggle-icon"></span>
+        </button>
+        <div class="nav-menu" id="navMenu">
+          <ul class="nav-list">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/framingham">Framingham Risk Score</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ascvd">ASCVD Risk Estimator</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </nav>
+      <div className="p-10 text-xl">
       <h2 className="text-2xl font-bold mb-4">ASCVD Risk Estimator</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -111,11 +133,12 @@ const ASCVDPage = () => {
           <label className="block">On Aspirin Therapy:</label>
           <input type="checkbox" checked={onAspirin} onChange={() => setOnAspirin(!onAspirin)} />
         </div>
-        <button type="submit" className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-600">
+        <button type="submit" class="btn btn-primary">
           Calculate Risk
         </button>
       </form>
     </div>
+    </>
   );
 };
 
