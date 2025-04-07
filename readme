@@ -1,0 +1,86 @@
+# Heart Disease Prediction App
+
+This is a full-stack machine learning app for predicting heart disease risk. It includes a Python backend for model inference and a frontend built with modern JavaScript tooling (Vite + pnpm).
+
+---
+
+## Quickstart: Local Setup
+
+This guide walks you through setting up the project on a fresh machine.
+
+---
+
+### Requirements
+
+- [Python 3.8+](https://www.python.org/downloads/)
+- [Node.js 16.9+](https://nodejs.org/en/download/)
+- [Corepack (comes with Node 16.9+)](https://nodejs.org/api/corepack.html)
+
+---
+
+## 1. Clone the Repo and Switch to `master` Branch
+
+git clone https://github.com/ChicoState/heartdisease.git
+
+cd heartdisease
+git checkout master
+cd hdrd
+
+---
+
+2. Set Up Python Backend
+
+> Create a virtual environment and install backend dependencies.
+
+### Python Version Compatibility
+
+##### For macOS (with Homebrew):
+
+# Install Python 3.9 (or later)
+brew install python@3.9
+
+# Verify installation
+python3.9 --version
+# Should show Python 3.9.x or higher
+
+brew link python@3.9 --force --overwrite
+
+Once Python 3.9 is installed, create a virtual environment:
+
+# Create a virtual environment using Python 3.9
+python3.9 -m venv venv
+source venv/bin/activate
+
+# Upgrade pip to the latest version
+pip install --upgrade pip
+
+# Install the required Python dependencies
+pip install -r requirements.txt
+---
+
+## 3. Set Up Frontend with pnpm
+
+> We use `pnpm` (a fast Node.js package manager), managed through Corepack so users don't need global installs.
+
+### Enable Corepack:
+corepack enable
+
+### Install dependencies:
+pnpm install
+
+### Start the frontend dev server:
+pnpm dev
+
+> This will start the frontend on [http://localhost:3000]
+
+---
+
+## You're all set!
+
+Your app should now be running locally.
+
+---
+
+
+
+
