@@ -1,0 +1,11 @@
+{
+  "buildCommand": "npm run build",
+  "installCommand": "pnpm install",
+  "framework": "nextjs",
+  "functions": {
+    "api/predict/route.ts": {
+      "runtime": "nodejs18.x",
+      "memory": 1024
+    }
+  }
+} 

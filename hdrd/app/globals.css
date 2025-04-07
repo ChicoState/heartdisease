@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 60 33% 94%;
+  --foreground: 24 6% 10%;
+  --card: 60 33% 94%;
+  --card-foreground: 24 6% 10%;
+  --popover: 60 33% 94%;
+  --popover-foreground: 24 6% 10%;
+  --primary: 0 100% 50%;
+  --primary-foreground: 60 33% 94%;
+  --secondary: 60 5% 84%;
+  --secondary-foreground: 24 6% 10%;
+  --muted: 60 5% 84%;
+  --muted-foreground: 24 5% 35%;
+  --accent: 60 5% 84%;
+  --accent-foreground: 24 6% 10%;
+  --destructive: 0 85% 60%;
+  --destructive-foreground: 60 33% 94%;
+  --border: 24 6% 10%;
+  --input: 24 6% 10%;
+  --ring: 12 76% 61%;
+}
+
+.dark {
+  --background: 24 6% 10%;
+  --foreground: 60 33% 94%;
+  --card: 24 6% 10%;
+  --card-foreground: 60 33% 94%;
+  --popover: 24 6% 10%;
+  --popover-foreground: 60 33% 94%;
+  --primary: 0 100% 50%;
+  --primary-foreground: 24 6% 10%;
+  --secondary: 24 5% 24%;
+  --secondary-foreground: 60 33% 94%;
+  --muted: 24 5% 24%;
+  --muted-foreground: 60 9% 80%;
+  --accent: 24 5% 24%;
+  --accent-foreground: 60 33% 94%;
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 60 33% 94%;
+  --border: 60 33% 94%;
+  --input: 60 33% 94%;
+  --ring: 12 76% 61%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(45deg, hsl(var(--primary)), hsl(var(--primary) / 0.2));
+}
+
+.card-hover {
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.bg-grid {
+  background-size: 50px 50px;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+}
+
+.glow {
+  background: radial-gradient(circle at center, rgba(76, 175, 80, 0.2) 0%, rgba(76, 175, 80, 0) 70%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+}
+
+.fade-out-bottom {
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 70%, rgba(0, 0, 0, 0) 100%);
+}
+
+.noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+}
+
