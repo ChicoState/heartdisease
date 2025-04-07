@@ -12,9 +12,8 @@ This guide walks you through setting up the project on a fresh machine.
 
 ### Requirements
 
-- [Python 3.8+](https://www.python.org/downloads/)
 - [Node.js 16.9+](https://nodejs.org/en/download/)
-- [Corepack (comes with Node 16.9+)](https://nodejs.org/api/corepack.html)
+- (only for mac) [Corepack (comes with Node 16.9+)](https://nodejs.org/api/corepack.html)
 
 ---
 
@@ -23,46 +22,73 @@ This guide walks you through setting up the project on a fresh machine.
 git clone https://github.com/ChicoState/heartdisease.git
 
 cd heartdisease
+
 git checkout master
+
 cd hdrd
+
+
+#### Chained Command : 
+#### git clone https://github.com/ChicoState/heartdisease.git && cd heartdisease && git checkout master && cd hdrd
 
 ---
 
-2. Set Up Python Backend
+# 2. Set Up Python Backend
 
 > Create a virtual environment and install backend dependencies.
 
-### Python Version Compatibility
+## Python Version Compatibility
 
-##### For macOS (with Homebrew):
 
-# Install Python 3.9 (or later)
+### Install Python 3.9 (or later)
+
+
+###### For macOS (with Homebrew):
 brew install python@3.9
 
-# Verify installation
+###### For Linux (with apt):
+sudo apt update
+sudo apt install -y software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+sudo apt install -y python3.9 python3.9-venv python3.9-dev
+
+### Verify installation
+
 python3.9 --version
-# Should show Python 3.9.x or higher
+
+#### Should show Python 3.9.x or higher (optional)
 
 brew link python@3.9 --force --overwrite
 
-Once Python 3.9 is installed, create a virtual environment:
+#### Chained Command : 
+#### Mac: brew install python@3.9 && python3.9 --version && brew link python@3.9 --force --overwrite
+#### Linux: sudo apt update && sudo apt install python3.9 python3.9-venv python3.9-dev && python3.9 --version
 
-# Create a virtual environment using Python 3.9
+---
+
+# 3. Create a virtual environment using Python 3.9
 python3.9 -m venv venv
 source venv/bin/activate
 
-# Upgrade pip to the latest version
+### Upgrade pip to the latest version
 pip install --upgrade pip
 
-# Install the required Python dependencies
+### Install the required Python dependencies
+
 pip install -r requirements.txt
+
+
+#### Chained Command : 
+#### python3.9 -m venv venv && source venv/bin/activate && pip install --upgrade pip && pip install -r requirements.txt
+
 ---
 
 ## 3. Set Up Frontend with pnpm
 
-> We use `pnpm` (a fast Node.js package manager), managed through Corepack so users don't need global installs.
+> ( only for Mac ) We use `pnpm` (a fast Node.js package manager), managed through Corepack so users don't need global installs.
 
-### Enable Corepack:
+### Enable Corepack: ( only for Mac )
 corepack enable
 
 ### Install dependencies:
@@ -73,6 +99,10 @@ pnpm dev
 
 > This will start the frontend on [http://localhost:3000]
 
+
+#### Chained Command : 
+#### corepack enable && pnpm install && pnpm dev
+
 ---
 
 ## You're all set!
@@ -80,7 +110,3 @@ pnpm dev
 Your app should now be running locally.
 
 ---
-
-
-
-
