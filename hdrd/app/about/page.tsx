@@ -9,21 +9,20 @@ export default function AboutPage() {
       <div className="grid grid-cols-1 gap-8">
         <Card>
           <CardHeader>
-            <CardTitle>Model Overview</CardTitle>
-            <CardDescription>Understanding our AI-powered heart disease risk assessment</CardDescription>
+            <CardTitle>How the Model Works</CardTitle>
+            <CardDescription>A transparent look at our heart disease risk prediction pipeline</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <p>
-              The HeartRisk AI model is a machine learning algorithm designed to predict an individual's risk of
-              developing heart disease. It analyzes various health metrics and lifestyle factors to provide a
-              personalized risk assessment.
+              The HeartRisk AI model uses a machine learning pipeline to estimate your risk of heart disease based on your health data. The process involves data cleaning, feature engineering, and prediction using a Random Forest Classifier.
             </p>
-            <h3 className="font-medium mt-4">Key Features</h3>
+            <h3 className="font-medium mt-4">Pipeline Steps</h3>
             <ul className="list-disc pl-5 space-y-1">
-              <li>Utilizes advanced machine learning techniques</li>
-              <li>Trained on large-scale, diverse medical datasets</li>
-              <li>Considers multiple risk factors for comprehensive analysis</li>
-              <li>Provides personalized risk scores and recommendations</li>
+              <li><b>Data Input:</b> Your health metrics (age, blood pressure, cholesterol, etc.) are collected via the app form.</li>
+              <li><b>Preprocessing:</b> Categorical features are one-hot encoded, and continuous features are standardized using a scaler.</li>
+              <li><b>Feature Engineering:</b> Additional features are created by combining certain variables (e.g., total number of major vessels, high-risk chest pain types).</li>
+              <li><b>Prediction:</b> The processed data is fed into a Random Forest Classifier trained on real patient data to estimate your risk.</li>
+              <li><b>Output:</b> The model returns a risk score and a risk category (Low, Medium, High) to help you understand your results.</li>
             </ul>
           </CardContent>
         </Card>
@@ -31,45 +30,52 @@ export default function AboutPage() {
         <Card>
           <CardHeader>
             <CardTitle>Training Data</CardTitle>
-            <CardDescription>The foundation of our AI model</CardDescription>
+            <CardDescription>What the model learned from</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
             <p>
-              Our model was trained on a diverse dataset comprising over 300,000 patient records from various sources,
-              including:
+              The model was trained on a public heart disease dataset containing 305 anonymized patient records. Each record includes demographic, clinical, and laboratory features relevant to heart disease risk.
             </p>
             <ul className="list-disc pl-5 space-y-1">
-              <li>Framingham Heart Study</li>
-              <li>NHANES (National Health and Nutrition Examination Survey)</li>
-              <li>UK Biobank</li>
-              <li>Electronic Health Records from multiple healthcare systems</li>
+              <li>Features include: age, sex, blood pressure, cholesterol, chest pain type, ECG results, and more</li>
+              <li>Target variable: presence or absence of heart disease</li>
+              <li>Dataset source: UCI Heart Disease dataset (Cleveland Clinic subset)</li>
             </ul>
             <p className="mt-4">
-              This extensive dataset ensures that our model can account for a wide range of demographic and health
-              profiles, enhancing its accuracy and applicability.
+              The relatively small dataset size means the model is best used for educational and screening purposes, not as a diagnostic tool.
             </p>
           </CardContent>
         </Card>
 
-        <ConfusionMatrix />
-
         <Card>
           <CardHeader>
-            <CardTitle>Model Limitations</CardTitle>
-            <CardDescription>Understanding the boundaries of our AI predictions</CardDescription>
+            <CardTitle>Model Details</CardTitle>
+            <CardDescription>Technical summary</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <p>While our model strives for high accuracy, it's important to understand its limitations:</p>
             <ul className="list-disc pl-5 space-y-1">
-              <li>Predictions are based on population-level data and may not capture all individual variations</li>
-              <li>The model doesn't account for rare genetic factors or certain specific medical conditions</li>
-              <li>Accuracy may vary across different demographic groups</li>
-              <li>The assessment is not a substitute for professional medical advice or diagnosis</li>
+              <li>Algorithm: Random Forest Classifier (200 trees, max depth 6)</li>
+              <li>Preprocessing: StandardScaler for continuous features, one-hot encoding for categorical features</li>
+              <li>Feature interactions: Summed vessel counts and high-risk chest pain types</li>
+              <li>Evaluation: ~92% accuracy on held-out test data</li>
+              <li>Model and scaler are saved and used for real-time predictions in the app</li>
             </ul>
-            <p className="mt-4">
-              We recommend using the HeartRisk AI assessment as a starting point for discussions with healthcare
-              providers and as a tool for monitoring general heart health trends.
-            </p>
+          </CardContent>
+        </Card>
+
+        <ConfusionMatrix />
+        <Card>
+          <CardHeader>
+            <CardTitle>Limitations & Responsible Use</CardTitle>
+            <CardDescription>Important considerations</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Predictions are based on a small, historical dataset and may not generalize to all populations</li>
+              <li>Does not account for rare genetic factors or all possible medical conditions</li>
+              <li>Should not be used as a substitute for professional medical advice or diagnosis</li>
+              <li>Use results as a conversation starter with your healthcare provider</li>
+            </ul>
           </CardContent>
         </Card>
       </div>

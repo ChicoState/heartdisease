@@ -1,10 +1,10 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 
 const confusionMatrixData = {
-  truePositive: 85,
-  falsePositive: 15,
-  falseNegative: 10,
-  trueNegative: 90,
+  truePositive: 26,
+  falsePositive: 3,
+  falseNegative: 2,
+  trueNegative: 30,
 }
 
 export default function ConfusionMatrix() {

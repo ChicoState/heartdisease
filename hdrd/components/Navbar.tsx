@@ -33,8 +33,14 @@ export default function Navbar() {
           <Link href="/how-to-measure" className="transition-colors hover:text-foreground/80 text-foreground/60">
             How to Measure
           </Link>
-          <Link href="/fixed" className="transition-colors hover:text-foreground/80 text-foreground/60">
+          <Link
+            href="/fixed"
+            className="text-sm font-medium transition-colors hover:text-primary"
+          >
             Fixed
+          </Link>
+          <Link href="/framingham" className="transition-colors hover:text-foreground/80 text-foreground/60">
+            Framingham
           </Link>
           {isLoggedIn && (
             <Link href="/dashboard" className="transition-colors hover:text-foreground/80 text-foreground/60">
@@ -77,8 +83,14 @@ export default function Navbar() {
             <Link href="/how-to-measure" className="transition-colors hover:text-foreground/80 text-foreground/60">
               How to Measure
             </Link>
-            <Link href="/fixed" className="transition-colors hover:text-foreground/80 text-foreground/60">
+            <Link
+              href="/fixed"
+              className="text-sm font-medium transition-colors hover:text-primary"
+            >
               Fixed
+            </Link>
+            <Link href="/framingham" className="transition-colors hover:text-foreground/80 text-foreground/60">
+              Framingham
             </Link>
             {isLoggedIn && (
               <Link href="/dashboard" className="transition-colors hover:text-foreground/80 text-foreground/60">
